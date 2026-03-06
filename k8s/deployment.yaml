@@ -1,1 +1,38 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vlab-jupyter
+  labels:
+    app: vlab
+    env: jupyter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vlab-jupyter
+  template:
+    metadata:
+      labels:
+        app: vlab-jupyter
+    spec:
+      containers:
+        - name: jupyter
+          image: jupyter/scipy-notebook:83ed2c63671f
+          ports:
+            - containerPort: 8888
+          env:
+            - name: JUPYTER_TOKEN
+              value: "msois@123"
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "500m"
+            limits:
+              memory: "2Gi"
+              cpu: "1"
+          volumeMounts:
+            - name: student-data
+              mountPath: /home/jovyan/Data
+      volumes:
+        - name: student-data
+          emptyDir: {}
