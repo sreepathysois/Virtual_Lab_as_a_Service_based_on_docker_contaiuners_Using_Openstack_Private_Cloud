@@ -221,7 +221,7 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 ## 🏫 Acknowledgements
 
-Developed and deployed at **MSoIS, Manipal** for academic lab and examination use.  
+Developed and deployed at **Manipal School of Information Sciences, Manipal** for academic lab and examination use.  
 Built on top of open-source Docker images from the community.
 
 ---
